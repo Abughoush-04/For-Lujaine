@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reasons I Smile 💛</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Reasons I Smile <span>(spoiler: it’s mostly you 💛)</span></h1>
+    
+    <div class="cards">
+      <div class="card">
+        <div class="front">Your laugh</div>
+        <div class="back">It sounds like peace.</div>
+      </div>
+
+      <div class="card">
+        <div class="front">Your eyes</div>
+        <div class="back">They make time slow down.</div>
+      </div>
+
+      <div class="card">
+        <div class="front">Your smile</div>
+        <div class="back">It makes my heart melt.</div>
+      </div>
+
+      <div class="card">
+        <div class="front">Your texts</div>
+        <div class="back">They make even bad days feel good.</div>
+      </div>
+
+      <div class="card">
+        <div class="front">Your mind</div>
+        <div class="back">It always amazes me, the way you think, dream, and see the world.</div>
+      </div>
+
+      <div class="card">
+        <div class="front">Your personality</div>
+        <div class="back">It shines so bright, you make everything feel lighter and more beautiful.</div>
+      </div>
+    </div>
+
+    <button id="miss-btn">Click here</button>
+
+    <div class="popup" id="popup">
+  <div class="popup-content">
+    <p>I love you so much, my beautiful baby 💫</p>
+    <button id="close-btn">Close</button>
+  </div>
+</div>
+
+  <script>
+    const btn = document.getElementById('miss-btn');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('close-btn');
+
+    btn.onclick = () => popup.style.display = 'flex';
+    closeBtn.onclick = () => popup.style.display = 'none';
+  </script>
+</body>
+</html>
