@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  padding: 20px; /* safe space for small screens */
+  padding: 20px;
 }
 
 .container {
@@ -44,12 +44,14 @@ h1 span {
 }
 
 .card {
-  width: 45%; /* ~2 cards per row on phone */
-  max-width: 170px; /* keeps desktop layout similar */
-  aspect-ratio: 1 / 1; /* square cards no matter what */
+  width: 45%;
+  max-width: 170px;
+  aspect-ratio: 1 / 1;
   perspective: 1000px;
   cursor: pointer;
+  margin-bottom: 5%;
   position: relative;
+  touch-action: manipulation;
 }
 
 .card div {
@@ -69,6 +71,7 @@ h1 span {
 .front {
   background-color: #ffe5ec;
   color: #333;
+  transform: rotateY(0deg);
 }
 
 .back {
@@ -82,6 +85,14 @@ h1 span {
 }
 
 .card:hover .back {
+  transform: rotateY(360deg);
+}
+
+.card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .back {
   transform: rotateY(360deg);
 }
 
@@ -114,10 +125,15 @@ h1 span {
   padding: 10px;
 }
 
-.popup p {
+.popup-content {
   background: white;
   padding: 2rem 5%;
   border-radius: 15px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup p {
   font-size: 1.2rem;
   color: #444;
 }
@@ -132,15 +148,6 @@ h1 span {
   cursor: pointer;
 }
 
-.popup-content {
-  background: white;
-  padding: 2rem 5%;
-  border-radius: 15px;
-  text-align: center;
-  animation: fadeIn 0.3s ease;
-}
-
-/* fade effect */
 @keyframes fadeIn {
   from {
     transform: scale(0.95);
@@ -154,43 +161,16 @@ h1 span {
 
 /* responsive layout */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .cards {
-    justify-content: center;
-  }
-
-  .card {
-    width: 45%;
-    height: 150px;
-  }
-
-  #miss-btn {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-    margin-top: 25px;
-  }
-
-  .popup p {
-    font-size: 1rem;
-    padding: 20px;
-  }
+  h1 { font-size: 1.5rem; }
+  .cards { justify-content: center; }
+  .card { width: 45%; height: 150px; }
+  #miss-btn { padding: 10px 16px; font-size: 0.9rem; margin-top: 25px; }
+  .popup p { font-size: 1rem; padding: 20px; }
 }
 
 /* tiny phones */
 @media (max-width: 400px) {
-  .card {
-    width: 90%;
-    margin-bottom: 4%;
-  }
-
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  h1 span {
-    font-size: 0.9rem;
-  }
+  .card { width: 90%; margin-bottom: 4%; }
+  h1 { font-size: 1.4rem; }
+  h1 span { font-size: 0.9rem; }
 }
